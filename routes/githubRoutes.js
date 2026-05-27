@@ -2,12 +2,9 @@
 const express = require('express');
 
 const router = express.Router();
+const {analyzeProfile } = require('../controllers/githubController');
 
-router.get("/", (req, res) => {
-    res.json({
-        message : "GitHub Analyzer Testing"
-    })
-})
+router.get("/analyze/:username", analyzeProfile);
 
 
 module.exports = router;
