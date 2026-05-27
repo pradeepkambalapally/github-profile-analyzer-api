@@ -83,11 +83,35 @@ const analyzeProfile = async (req, res) => {
             insights : insights
         });
     }catch(err){
-         res.status(500).json({
+         if (
+        err.response &&
+        err.response.status === 404
+    ) {
+
+        return res.status(404).json({
             success: false,
-            message: "Failed to fetch GitHub profile",
-            error: err.message
+            message: "GitHub user not found"
         });
+
+    }
+
+    if (
+        err.response &&
+        err.response.status === 403
+    ) {
+
+        return res.status(403).json({
+            success: false,
+            message: "GitHub API rate limit exceeded"
+        });
+
+    }
+
+    res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error: err.message
+    });
     }
 }
 
