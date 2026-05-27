@@ -2,11 +2,15 @@
 
 A backend REST API built with Node.js, Express.js, MySQL, and the GitHub REST API that analyzes GitHub user profiles and stores useful insights in a MySQL database.
 
-## Live API
+---
+
+# Live API
 
 https://github-profile-analyzer-api-g4y6.onrender.com
 
-## GitHub Repository
+---
+
+# GitHub Repository
 
 https://github.com/pradeepkambalapally/github-profile-analyzer-api
 
@@ -78,6 +82,7 @@ github-profile-analyzer-api/
 ├── .gitignore
 ├── app.js
 ├── package.json
+├── github_profiles.sql
 └── README.md
 ```
 
@@ -202,7 +207,23 @@ Create a `.env` file and add your database credentials.
 
 ---
 
-## 5. Run Development Server
+## 5. Import Database Schema
+
+The MySQL schema file is included in the repository.
+
+File Name: [SQL File](github-profile-analyzer-database.sql)
+
+
+
+Run the SQL file in MySQL Workbench or use:
+
+```sql
+SOURCE github-profile-analyzer.sql;
+```
+
+---
+
+## 6. Run Development Server
 
 ```bash
 npm run dev
@@ -210,7 +231,7 @@ npm run dev
 
 ---
 
-## 6. Start Production Server
+## 7. Start Production Server
 
 ```bash
 npm start
@@ -242,13 +263,6 @@ CREATE TABLE github_profiles (
 
 ---
 
-# Deployment
-
-- Backend deployed on Render
-- MySQL database hosted on Aiven
-
----
-
 # Error Handling
 
 The API handles:
@@ -264,6 +278,14 @@ The API handles:
 
 - torvalds
 - gaearon
+
+
+---
+
+# Deployment
+
+- Backend deployed on Render
+- MySQL database hosted on Aiven
 
 ---
 
